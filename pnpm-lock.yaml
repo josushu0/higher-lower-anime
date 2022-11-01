@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@josushu0/eslint-config': ^0.1.3
   '@types/react': ^18.0.22
   '@types/react-dom': ^18.0.7
   '@vitejs/plugin-react': ^2.2.0
@@ -15,6 +16,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
+  '@josushu0/eslint-config': 0.1.3_eslint@8.26.0
   '@types/react': 18.0.24
   '@types/react-dom': 18.0.8
   '@vitejs/plugin-react': 2.2.0_vite@3.2.2
@@ -344,6 +346,14 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@josushu0/eslint-config/0.1.3_eslint@8.26.0:
+    resolution: {integrity: sha512-xzrlm8b1dpaD1j4CZ5uH43jYxN/Seu2XePz16MdVFXGyXjvS3lRfSkdcOv9zMBU5Rgqbix1FuFVH2lYwT3R/2Q==}
+    peerDependencies:
+      eslint: '>=6.2.0'
+    dependencies:
+      eslint: 8.26.0
     dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
