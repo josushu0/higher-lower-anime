@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Game from './components/Game.jsx'
 import Home from './components/Home.jsx'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
 
 	switch (gameState) {
 	case 'play':
-		content = <Home />
+		content = <Game />
 		break
 
 	case 'lose':

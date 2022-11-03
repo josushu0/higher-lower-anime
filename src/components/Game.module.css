@@ -1,0 +1,26 @@
+.game {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.versus_circle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 100px;
+	background-color: var(--background-color);
+	border-style: solid;
+	border-color: black;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.versus_text {
+	font-size: 2rem;
+	line-height: 2rem;
+}
