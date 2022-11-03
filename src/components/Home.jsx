@@ -2,11 +2,7 @@ import { ArrowLongUpIcon, ArrowLongDownIcon } from '@heroicons/react/24/solid'
 import PropTypes from 'prop-types'
 import styles from './Home.module.css'
 
-function Home({ setGameState }) {
-	function play() {
-		setGameState('play')
-	}
-
+function Home({ play }) {
 	return (
 		<main className={styles.home}>
 			<section className={styles.title}>
@@ -22,12 +18,12 @@ function Home({ setGameState }) {
 				</p>
 			</section>
 			<section className={styles.options}>
-				<button className={styles.optionsPlay} onClick={play}>Play</button>
+				<button className={styles.optionsPlay} onClick={() => play('play')}>Play</button>
 			</section>
 		</main>
 	)
 }
 
-Home.propTypes = { setGameState: PropTypes.func }
+Home.propTypes = { play: PropTypes.func }
 
 export default Home
