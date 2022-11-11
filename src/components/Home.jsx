@@ -4,6 +4,11 @@ import styles from './Home.module.css'
 
 function Home({ play, success }) {
 	let content = <></>
+
+	if (!localStorage.getItem('highScore')) {
+		localStorage.setItem('highScore', '0')
+	}
+
 	if (!success) {
 		content = <div className={styles.spinner}>
 			<div className={styles.bounce1}></div>
@@ -34,6 +39,7 @@ function Home({ play, success }) {
 				</button>
 				<p style={{ display: `${success ? 'none' : 'block'}` }}>Loading anime...</p>
 			</section>
+			<p className={styles.maxScore}>Max Score: {localStorage.getItem('highScore')}</p>
 		</main>
 	)
 }
