@@ -8,6 +8,7 @@ import Lose from './components/Lose.jsx'
 function App() {
 	const [gameState, setGameState] = useState('home')
 	const [anime, setAnime] = useState([])
+	const [score, setScore] = useState(0)
 	let content
 
 	const { data: first } = useQuery(
@@ -36,13 +37,18 @@ function App() {
 		setGameState('play')
 	}
 
+	function handleLose(score) {
+		setScore(score)
+		setGameState('lose')
+	}
+
 	switch (gameState) {
 	case 'play':
-		content =	<Game data={anime} back={setGameState} lose={setGameState} />
+		content =	<Game data={anime} back={setGameState} lose={handleLose} />
 		break
 
 	case 'lose':
-		content = <Lose play={setGameState} back={setGameState} />
+		content = <Lose play={setGameState} back={setGameState} score={score} />
 		break
 
 	default:
