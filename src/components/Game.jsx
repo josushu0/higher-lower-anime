@@ -53,10 +53,10 @@ function Game({ data, back, lose }) {
 		<main className={styles.game}>
 			<Tile left={true} anime={left} />
 			<Tile left={false} anime={right} next={handleNext} />
-			<button className={styles.back} onClick={() => back('home')}>
+			<button aria-label='Return to home' className={styles.back} onClick={() => back('home')}>
 				<ChevronDoubleLeftIcon className={styles.backArrow} />
 			</button>
-			<div className={styles.versus_circle}>
+			<div aria-hidden='true' className={styles.versus_circle}>
 				<span className={styles.versus_text}>VS</span>
 			</div>
 			<p className={styles.score}>Score: {score}</p>
