@@ -17,25 +17,27 @@ a {
 .title {
 	display: flex;
 	align-items: center;
-	font-size: 1.5rem;
-	line-height: 2.5rem;
 }
 
 .titleText {
+	font-size: clamp(2.4rem, 3.2vw + 1rem, 3rem);
+	line-height: 2.5rem;
 	width: 160px;
 	margin-block: 0px;
 	text-align: center;
 }
 
-.arrowUp {
-	height: 120px;
+.arrow {
 	width: 70px;
+}
+
+.arrowUp {
+	composes: arrow;
 	fill: var(--color-secondary);
 }
 
 .arrowDown {
-	height: 120px;
-	width: 70px;
+	composes: arrow;
 	fill: var(--color-primary);
 }
 
@@ -68,7 +70,6 @@ a {
 }
 
 .spinner {
-  width: 70px;
   text-align: center;
 }
 
@@ -111,5 +112,11 @@ a {
 @media screen and (prefers-color-scheme: light) {
   .optionsPlay:hover {
 		color: var(--background-color);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.titleText {
+		width: 130px;
 	}
 }

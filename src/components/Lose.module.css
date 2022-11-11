@@ -6,7 +6,7 @@
 }
 
 .title {
-	font-size: 2.5rem;
+	font-size: clamp(1.4rem, 5.9vw - 1.2rem, 2.5rem);
 	text-align: center;
 	margin-block: 0;
 }
@@ -14,18 +14,19 @@
 .scores {
 	display: flex;
 	gap: 2rem;
+	justify-content: center;
 }
 
 .score {
 	text-align: center;
-	font-size: 2rem;
+	font-size: clamp(1rem, 5.3vw - 1.3rem, 2rem);
 }
 
 .button {
 	margin: 5px;
 	font-weight: bold;
 	padding-block: 1rem;
-	padding-inline: 5rem;
+	padding-inline: 3rem;
 	border-width: 2px;
 	border-radius: 5px;
 	transition: all ease-in-out 100ms;

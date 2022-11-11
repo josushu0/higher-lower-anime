@@ -1,7 +1,6 @@
 .game {
 	min-height: 100vh;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
 }
 
 .versus_circle {
@@ -53,4 +52,21 @@
 	bottom: 10px;
 	left: 10px;
 	font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .game {
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.versus_circle {
+		width: 70px;
+		height: 70px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+  .game {
+		grid-template-columns: 1fr 1fr;
+	}
 }
