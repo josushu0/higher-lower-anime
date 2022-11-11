@@ -1,11 +1,11 @@
 import styles from './Tile.module.css'
 import PropTypes from 'prop-types'
 
-function Tile({ left, anime }) {
+function Tile({ left, anime, next }) {
 	return (
 		<section className={styles.tile}
 			style={{
-				backgroundImage: `url(${anime.images.webp.large_image_url})`,
+				backgroundImage: `url(${anime.images.jpg.large_image_url})`,
 				backgroundSize: 'cover'
 			}}>
 			<div className={styles.overlay}></div>
@@ -19,8 +19,8 @@ function Tile({ left, anime }) {
 				:
 				<>
 					<p>has a</p>
-					<button className={styles.higher} onClick={() => console.log('Higher')}>Higher</button>
-					<button className={styles.lower} onClick={() => console.log('Lower')}>Lower</button>
+					<button className={styles.higher} onClick={() => next('higher')}>Higher</button>
+					<button className={styles.lower} onClick={() => next('lower')}>Lower</button>
 					<p>rank</p>
 				</>
 			}
@@ -30,7 +30,8 @@ function Tile({ left, anime }) {
 
 Tile.propTypes = {
 	left: PropTypes.bool,
-	anime: PropTypes.object
+	anime: PropTypes.object,
+	next: PropTypes.func
 }
 
 export default Tile
