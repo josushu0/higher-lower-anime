@@ -24,6 +24,7 @@ function Game({ data, back, lose }) {
 	const [index, setIndex] = useState(0)
 	const [left, setLeft] = useState(anime[ index ])
 	const [right, setRight] = useState(anime[ index + 1 ])
+	const [score, setScore] = useState(0)
 
 	useEffect(() => {
 		setLeft(anime[ index ])
@@ -33,14 +34,16 @@ function Game({ data, back, lose }) {
 	function handleNext(option) {
 		if (option === 'higher') {
 			if (left.rank > right.rank) {
+				setScore(score + 1)
 				setIndex(index + 1)
 			} else {
-				lose('lose')
+				lose(score)
 			}
 		} else {
 			if (left.rank > right.rank) {
-				lose('lose')
+				lose(score)
 			} else {
+				setScore(score + 1)
 				setIndex(index + 1)
 			}
 		}
@@ -56,6 +59,7 @@ function Game({ data, back, lose }) {
 			<div className={styles.versus_circle}>
 				<span className={styles.versus_text}>VS</span>
 			</div>
+			<p className={styles.score}>Score: {score}</p>
 		</main>
 	)
 }
