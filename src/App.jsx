@@ -2,20 +2,8 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import Game from './components/Game.jsx'
 import Home from './components/Home.jsx'
+import Lose from './components/Lose.jsx'
 
-function shuffle(data) {
-	let length = data.length
-	let random
-	let element
-	while (length) {
-		random = Math.floor(Math.random() * length--)
-		element = data[ length ]
-		data[ length ] = data[ random ]
-		data[ random ] = element
-	}
-
-	return data
-}
 
 function App() {
 	const [gameState, setGameState] = useState('home')
@@ -43,18 +31,18 @@ function App() {
 		}
 	)
 
-	async function getAnime() {
-		setAnime(shuffle([...first.data, ...second.data]))
+	function getAnime() {
+		setAnime([...first.data, ...second.data])
 		setGameState('play')
 	}
 
 	switch (gameState) {
 	case 'play':
-		content =	<Game anime={anime} back={setGameState} />
+		content =	<Game data={anime} back={setGameState} lose={setGameState} />
 		break
 
 	case 'lose':
-		content = <Home />
+		content = <Lose play={setGameState} back={setGameState} />
 		break
 
 	default:

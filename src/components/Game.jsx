@@ -5,7 +5,22 @@ import { useState } from 'react'
 import styles from './Game.module.css'
 import Tile from './Tile'
 
-function Game({ anime, back, lose }) {
+function shuffle(data) {
+	let length = data.length
+	let random
+	let element
+	while (length) {
+		random = Math.floor(Math.random() * length--)
+		element = data[ length ]
+		data[ length ] = data[ random ]
+		data[ random ] = element
+	}
+
+	return data
+}
+
+function Game({ data, back, lose }) {
+	let anime = shuffle(data)
 	const [index, setIndex] = useState(0)
 	const [left, setLeft] = useState(anime[ index ])
 	const [right, setRight] = useState(anime[ index + 1 ])
@@ -46,7 +61,7 @@ function Game({ anime, back, lose }) {
 }
 
 Game.propTypes = {
-	anime: PropTypes.array,
+	data: PropTypes.array,
 	back: PropTypes.func,
 	lose: PropTypes.func
 }
