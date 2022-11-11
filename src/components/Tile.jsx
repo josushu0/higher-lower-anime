@@ -1,29 +1,36 @@
 import styles from './Tile.module.css'
 import PropTypes from 'prop-types'
 
-function Tile({ left }) {
+function Tile({ left, anime }) {
 	return (
-		<section className={styles.tile}>
-			<h1 className={styles.title}>Anime</h1>
+		<section className={styles.tile}
+			style={{
+				backgroundImage: `url(${anime.images.webp.large_image_url})`,
+				backgroundSize: 'cover'
+			}}>
+			<div className={styles.overlay}></div>
+			<h1 className={styles.title}>{anime.title_english || anime.title}</h1>
 			{left
 				?
 				<>
 					<p className={styles.description}>Has a rank of</p>
-					<p className={styles.rank}>50</p>
+					<p className={styles.rank}>{anime.rank}</p>
 				</>
 				:
 				<>
 					<p>has a</p>
-					<button className={styles.higher}>Higher</button>
-					<button className={styles.lower}>Lower</button>
+					<button className={styles.higher} onClick={() => console.log('Higher')}>Higher</button>
+					<button className={styles.lower} onClick={() => console.log('Lower')}>Lower</button>
 					<p>rank</p>
 				</>
 			}
-			<div className={styles.overlay}></div>
 		</section>
 	)
 }
 
-Tile.propTypes = { left: PropTypes.bool }
+Tile.propTypes = {
+	left: PropTypes.bool,
+	anime: PropTypes.object
+}
 
 export default Tile
