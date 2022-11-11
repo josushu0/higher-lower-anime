@@ -49,9 +49,10 @@
 
 .score {
 	position: absolute;
-	bottom: 10px;
-	left: 10px;
+	top: 10px;
+	right: 10px;
 	font-size: 1.5rem;
+	color: var(--color-neutral-100);
 }
 
 @media screen and (max-width: 768px) {
