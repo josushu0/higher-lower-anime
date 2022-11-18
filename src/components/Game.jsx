@@ -1,7 +1,6 @@
 import { ChevronDoubleLeftIcon } from '@heroicons/react/24/solid'
 import PropTypes from 'prop-types'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import styles from './Game.module.css'
 import Tile from './Tile'
 
@@ -20,7 +19,7 @@ function shuffle(data) {
 }
 
 function Game({ data, back, lose }) {
-	let anime = shuffle(data)
+	const anime = useMemo(() => shuffle(data), [data])
 	const [index, setIndex] = useState(0)
 	const [left, setLeft] = useState(anime[ index ])
 	const [right, setRight] = useState(anime[ index + 1 ])
