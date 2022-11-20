@@ -5,7 +5,9 @@ function Tile({ left, anime, next }) {
 	return (
 		<section className={styles.tile}
 			style={{
-				backgroundImage: `url(${anime.images.jpg.large_image_url})`,
+				backgroundImage: `url(
+					${anime.images.webp.large_image_url || anime.images.jpg.large_image_url}
+				)`,
 				backgroundSize: 'cover'
 			}}>
 			<div className={styles.overlay}></div>
