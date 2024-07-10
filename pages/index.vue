@@ -1,7 +1,7 @@
 <script setup lang="ts">
 let highScore = ref<String | null>(null)
 
-onBeforeMount(() => {
+onMounted(() => {
 	highScore.value = localStorage.getItem('highscore')
 })
 </script>
