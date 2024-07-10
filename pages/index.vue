@@ -1,3 +1,11 @@
+<script setup lang="ts">
+let highScore = ref<String | null>(null)
+
+onBeforeMount(() => {
+	highScore.value = localStorage.getItem('highscore')
+})
+</script>
+
 <template>
 	<main class="flex h-dvh flex-col items-center justify-center bg-gray-900">
 		<!-- Arrows -->
@@ -27,9 +35,11 @@
 				<NuxtLink to="https://anilist.co" target="_blank">AniList</NuxtLink>?
 			</p>
 			<NuxtLink
+				to="game"
 				class="cursor-pointer rounded-full border-4 border-gray-50 bg-transparent px-10 py-2 transition-colors hover:bg-gray-50 hover:text-gray-950">
 				Play
 			</NuxtLink>
+			<p v-if="highScore" class="text-lg">Highscore: {{ highScore }}</p>
 		</div>
 	</main>
 </template>
