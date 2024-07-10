@@ -8,8 +8,6 @@ interface Data {
 					averageScore: number
 					coverImage: {
 						extraLarge: string
-						large: string
-						medium: string
 					}
 					title: {
 						english: string
@@ -30,8 +28,6 @@ export default defineNitroPlugin(async () => {
 					averageScore
 					coverImage {
 						extraLarge
-						large
-						medium
 					}
 					title {
 						english
@@ -43,7 +39,7 @@ export default defineNitroPlugin(async () => {
 
 		await prisma.anime.deleteMany()
 
-		for (let i = 0; i < 10; i++) {
+		for (let i = 0; i < 20; i++) {
 			const { data } = await $fetch<Data>('https://graphql.anilist.co', {
 				method: 'post',
 				headers: {
@@ -60,9 +56,7 @@ export default defineNitroPlugin(async () => {
 				return {
 					id: index + 1 + i * 50,
 					averageScore: anime.averageScore,
-					xlUrl: anime.coverImage.extraLarge,
-					lgUrl: anime.coverImage.large,
-					mdUrl: anime.coverImage.medium,
+					image: anime.coverImage.extraLarge,
 					title: anime.title.english || anime.title.romaji,
 				}
 			})
