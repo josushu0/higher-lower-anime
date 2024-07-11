@@ -1,4 +1,5 @@
 import cron from 'node-cron'
+import { prisma } from '../utils/prisma'
 
 interface Data {
 	data: {
@@ -20,7 +21,8 @@ interface Data {
 }
 
 export default defineNitroPlugin(async () => {
-	cron.schedule('0 0 1 1-12 *', async () => {
+	// cron.schedule('0 0 1 1-12 *', async () => {
+	cron.schedule('* * * * *', async () => {
 		const query = `
 		query ($page: Int) {
 			Page(page: $page, perPage: 50) {
@@ -63,5 +65,6 @@ export default defineNitroPlugin(async () => {
 
 			await prisma.anime.createMany({ data: anime })
 		}
+		console.log('completed')
 	})
 })
