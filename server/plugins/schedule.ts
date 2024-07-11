@@ -21,8 +21,7 @@ interface Data {
 }
 
 export default defineNitroPlugin(async () => {
-	// cron.schedule('0 0 1 1-12 *', async () => {
-	cron.schedule('* * * * *', async () => {
+	cron.schedule('0 0 1 1-12 *', async () => {
 		const query = `
 		query ($page: Int) {
 			Page(page: $page, perPage: 50) {
@@ -65,6 +64,5 @@ export default defineNitroPlugin(async () => {
 
 			await prisma.anime.createMany({ data: anime })
 		}
-		console.log('completed')
 	})
 })
